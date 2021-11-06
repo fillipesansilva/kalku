@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">kalku</string>
+
+    <string name="operator">operator</string>
+    <string name="numerator">numerator</string>
+    <string name="denominator">denominator</string>
+    <string name="subtitle">Choose your answer:</string>
+    <string name="ans1">ans1</string>
+    <string name="ans2">ans2</string>
+    <string name="ans3">ans3</string>
+    <string name="ans4">ans4</string>
+    <string name="ans5">ans5</string>
+    <string name="ans6">ans6</string>
+
+</resources>
