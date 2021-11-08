@@ -1,5 +1,5 @@
 package com.mel.kalku
 
-enum class Operation {
-    SUM, MINUS
+public enum class OperationEnum {
+    SUM, MIN, MUL, DIV
 }
