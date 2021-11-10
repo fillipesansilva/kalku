@@ -2,9 +2,9 @@
 
     <string name="app_name">kalku</string>
 
-    <string name="operator"></string>
-    <string name="numerator"></string>
-    <string name="denominator"></string>
+    <string name="operator">operator</string>
+    <string name="numerator">numerator</string>
+    <string name="denominator">denominator</string>
     <string name="subtitle">Choose your answer:</string>
     <string name="ans1"></string>
     <string name="ans2"></string>
