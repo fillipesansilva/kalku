@@ -1,6 +1,7 @@
 package com.mel.kalku
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.transition.Slide
+import androidx.transition.Transition
+import androidx.transition.TransitionManager
 import com.mel.kalku.databinding.FragmentMainBinding
 import kotlin.random.Random
 
@@ -44,9 +48,6 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val dialog : InitialDialogFragment = InitialDialogFragment()
-
 
         ans1.setOnClickListener(this)
         ans2.setOnClickListener(this)
@@ -122,7 +123,12 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         if (validateAnswer((bnt.text as String).toInt())) {
             Toast.makeText(context, "Right answer!", Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(context, "Wrong answer!", Toast.LENGTH_SHORT).show()
+            val transition: Transition = Slide(Gravity.BOTTOM)
+            transition.duration = 600
+            transition.addTarget(bnt)
+            TransitionManager.beginDelayedTransition(binding.layoutAns123, transition)
+            bnt.visibility = if (bnt.isShown) View.INVISIBLE else View.VISIBLE
+
         }
 
     }

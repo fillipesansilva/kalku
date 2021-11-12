@@ -72,6 +72,7 @@
     <!--android:drawableTop="@android:drawable/btn_star_big_on"-->
 
     <LinearLayout
+        android:id="@+id/layoutAns123"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -81,16 +82,16 @@
             android:id="@+id/ans1"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_weight="1"
             android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:text="@string/ans1" />
 
         <Button
             android:id="@+id/ans2"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_weight="1"
             android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:text="@string/ans2" />
 
         <Button
