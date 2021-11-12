@@ -29,6 +29,8 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
     private val ans5: Button by lazy { binding.ans5 }
     private val ans6: Button by lazy { binding.ans6 }
 
+    private val operator: TextView by lazy { binding.operator }
+
     private lateinit var answersList : ArrayList<Button>
 
     private val numerator: TextView by lazy { binding.numerator }
@@ -66,6 +68,25 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
 
     fun init() {
         fillOut()
+        showOperationSymbol()
+    }
+
+    fun showOperationSymbol(){
+        //textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon, 0, 0, 0);
+        when(operation){
+            OperationEnum.SUM -> {
+                operator.text = "+"
+            }
+            OperationEnum.MIN -> {
+                operator.text = "-"
+            }
+            OperationEnum.MUL -> {
+                operator.text = "X"
+            }
+            OperationEnum.DIV -> {
+                operator.text = "/*/"
+            }
+        }
     }
 
     //random number generator between 2 and 12
@@ -123,7 +144,7 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         if (validateAnswer((bnt.text as String).toInt())) {
             Toast.makeText(context, "Right answer!", Toast.LENGTH_SHORT).show()
         }else{
-            val transition: Transition = Slide(Gravity.BOTTOM)
+            val transition: Transition = Slide(Gravity.START)
             transition.duration = 600
             transition.addTarget(bnt)
             TransitionManager.beginDelayedTransition(binding.layoutAns123, transition)
