@@ -5,7 +5,12 @@
     <string name="operator">operator</string>
     <string name="numerator">numerator</string>
     <string name="denominator">denominator</string>
+
     <string name="subtitle">Choose your answer:</string>
+    <string name="play_again">Play again?</string>
+    <string name="wrong_answer">Wrong</string>
+    <string name="correct_answer">Correct!</string>
+
     <string name="ans1"></string>
     <string name="ans2"></string>
     <string name="ans3"></string>

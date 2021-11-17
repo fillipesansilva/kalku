@@ -29,6 +29,9 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
     private val ans5: Button by lazy { binding.ans5 }
     private val ans6: Button by lazy { binding.ans6 }
 
+    private val playAgain: Button by lazy { binding.playAgain }
+
+    private val result: TextView by lazy { binding.result }
     private val operator: TextView by lazy { binding.operator }
 
     private lateinit var answersList : ArrayList<Button>
@@ -134,7 +137,6 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
             it.setText(numbers.get(i).toString())
             i++
         }
-
     }
 
     override fun onClick(view: View?) {
@@ -142,14 +144,15 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         var bnt : Button = view as Button
 
         if (validateAnswer((bnt.text as String).toInt())) {
-            Toast.makeText(context, "Right answer!", Toast.LENGTH_SHORT).show()
+            result.text = getText(R.string.correct_answer)
+            playAgain.visibility  = View.VISIBLE
         }else{
             val transition: Transition = Slide(Gravity.START)
             transition.duration = 600
             transition.addTarget(bnt)
-            TransitionManager.beginDelayedTransition(binding.layoutAns123, transition)
+            TransitionManager.beginDelayedTransition(binding.answers, transition)
             bnt.visibility = if (bnt.isShown) View.INVISIBLE else View.VISIBLE
-
+            result.text = getText(R.string.wrong_answer)
         }
 
     }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=00ACC1 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -26,9 +26,9 @@
                 android:id="@+id/operator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:text="X"
-                android:textColor="#00acc1"
+                android:fontFamily="@string/font_casual"
+                android:text="+"
+                android:textColor="@color/primary_ocean"
                 android:textSize="60sp" />
         </LinearLayout>
 
@@ -41,141 +41,110 @@
 
             <TextView
                 android:id="@+id/numerator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center"
-                android:text="10"
-                android:textColor="#00acc1"
-                android:textSize="158sp" />
+                style="@style/numerator"
+                android:text="10" />
 
             <TextView
                 android:id="@+id/denominator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="6"
-                android:textColor="#00acc1"
-                android:textSize="158sp" />
+                style="@style/denominator"
+                android:text="10" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="#00acc1" />
 
-        <TextView
-            android:id="@+id/subTitle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/subtitle" />
     </LinearLayout>
 
     <!-- Add musical notes in the future. -->
     <!--android:drawableTop="@android:drawable/btn_star_big_on"-->
 
     <LinearLayout
-        android:id="@+id/layoutAns123"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:backgroundTint="#80d6ff"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/ans1"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/ans1"
+                style="@style/answers_btn"
+                android:text="12" />
+
+            <Button
+                android:id="@+id/ans2"
+                style="@style/answers_btn"
+                android:text="12" />
+
+            <Button
+                android:id="@+id/ans3"
+                style="@style/answers_btn"
+                android:text="12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/ans4"
+                style="@style/answers_btn"
+                android:text="12" />
+
+            <Button
+                android:id="@+id/ans5"
+                style="@style/answers_btn"
+                android:text="12" />
+
+            <Button
+                android:id="@+id/ans6"
+                style="@style/answers_btn"
+                android:text="12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="12"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/ans2"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="15"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@string/font_casual"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/primary_ocean" />
 
-        <Button
-            android:id="@+id/ans3"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="15"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
+            <Button
+                android:id="@+id/playAgain"
+                style="@style/play_again_btn"
+                android:text="@string/play_again"
+                android:visibility="invisible" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <Button
-            android:id="@+id/ans4"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="20"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
-
-        <Button
-            android:id="@+id/ans5"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="1"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
-
-        <Button
-            android:id="@+id/ans6"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00acc1"
-            android:fontFamily="casual"
-            android:text="5"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
