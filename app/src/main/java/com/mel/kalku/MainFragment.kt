@@ -1,16 +1,13 @@
 package com.mel.kalku
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.transition.Slide
+import androidx.transition.Fade
 import androidx.transition.Transition
 import androidx.transition.TransitionManager
 import com.mel.kalku.databinding.FragmentMainBinding
@@ -34,7 +31,7 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
     private val result: TextView by lazy { binding.result }
     private val operator: TextView by lazy { binding.operator }
 
-    private lateinit var answersList : ArrayList<Button>
+    private lateinit var answersBtnList : ArrayList<Button>
 
     private val numerator: TextView by lazy { binding.numerator }
     private val denominator: TextView by lazy { binding.denominator }
@@ -61,9 +58,9 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         ans5.setOnClickListener(this)
         ans6.setOnClickListener(this)
 
-        answersList = arrayListOf<Button>()
-        answersList.add(ans1); answersList.add(ans2); answersList.add(ans3)
-        answersList.add(ans4); answersList.add(ans5); answersList.add(ans6)
+        answersBtnList = arrayListOf<Button>()
+        answersBtnList.add(ans1); answersBtnList.add(ans2); answersBtnList.add(ans3)
+        answersBtnList.add(ans4); answersBtnList.add(ans5); answersBtnList.add(ans6)
 
         init()
 
@@ -133,9 +130,15 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         denominator.text = denominatorRandom.toString()
 
         var i = 0
-        answersList.forEach{
+        answersBtnList.forEach{
             it.setText(numbers.get(i).toString())
             i++
+        }
+    }
+
+    fun setEnableDisableBtn(value: Boolean) {
+        answersBtnList.forEach {
+            it.setEnabled(value)
         }
     }
 
@@ -146,8 +149,9 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         if (validateAnswer((bnt.text as String).toInt())) {
             result.text = getText(R.string.correct_answer)
             playAgain.visibility  = View.VISIBLE
+            setEnableDisableBtn(false)
         }else{
-            val transition: Transition = Slide(Gravity.START)
+            val transition: Transition = Fade()
             transition.duration = 600
             transition.addTarget(bnt)
             TransitionManager.beginDelayedTransition(binding.answers, transition)
