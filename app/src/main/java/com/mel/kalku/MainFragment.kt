@@ -1,6 +1,7 @@
 package com.mel.kalku
 
 import android.os.Bundle
+import android.os.UserManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,9 +63,14 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
         answersBtnList.add(ans1); answersBtnList.add(ans2); answersBtnList.add(ans3)
         answersBtnList.add(ans4); answersBtnList.add(ans5); answersBtnList.add(ans6)
 
-        init()
+        MyCustomDialog().show(parentFragmentManager, "Kk")
 
+        init()
     }
+
+
+
+
 
     fun init() {
         fillOut()
@@ -111,6 +117,7 @@ class MainFragment : Fragment(R.layout.fragment_main), View.OnClickListener {
             }
         }
     }
+
 
     fun fillOut() {
 

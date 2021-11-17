@@ -3,26 +3,24 @@ package com.mel.kalku
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
-class InitialDialogFragment : DialogFragment() {
+class MyCustomDialog: DialogFragment() {
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return activity?.let {
-            // Use the Builder class for convenient dialog construction
-            val builder = AlertDialog.Builder(it)
-            builder.setMessage("Ola") //Colocar na String
-                .setPositiveButton("A",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        // FIRE ZE MISSILES!
-                    })
-                .setNegativeButton("B",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        // User cancelled the dialog
-                    })
-            // Create the AlertDialog object and return it
-            builder.create()
-        } ?: throw IllegalStateException("Activity cannot be null")
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        getDialog()!!.getWindow()?.setBackgroundDrawableResource(R.drawable.round_corner);
+        return inflater.inflate(R.layout.initial_dialog_fragment, container, false)
     }
+
+    override fun onStart() {
+        super.onStart()
+        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        val height = (resources.displayMetrics.heightPixels * 0.40).toInt()
+        dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
+
 }
