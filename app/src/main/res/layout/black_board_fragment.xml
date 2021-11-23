@@ -141,8 +141,7 @@
             <Button
                 android:id="@+id/playAgain"
                 style="@style/play_again_btn"
-                android:text="@string/play_again"
-                android:visibility="invisible" />
+                android:text="@string/play_again" />
 
         </LinearLayout>
 

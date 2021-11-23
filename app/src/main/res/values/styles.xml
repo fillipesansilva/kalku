@@ -50,6 +50,13 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="operations_dialog">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
 
 
 </resources>

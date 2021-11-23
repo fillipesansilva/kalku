@@ -13,19 +13,14 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/add"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
+            android:id="@+id/sum"
+            style="@style/operations_dialog"
+            android:imeOptions="actionSend"
             android:background="@drawable/ic_outline_add_box_24"/>
 
         <Button
-            android:id="@+id/minus"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
+            android:id="@+id/min"
+            style="@style/operations_dialog"
             android:background="@drawable/ic_outline_minus_box_24" />
 
     </LinearLayout>
@@ -37,19 +32,13 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/multi"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
+            android:id="@+id/mul"
+            style="@style/operations_dialog"
             android:background="@drawable/ic_outline_mult_box_24" />
 
         <Button
             android:id="@+id/div"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
+            style="@style/operations_dialog"
             android:background="@drawable/ic_outline_div_box_24" />
 
     </LinearLayout>
